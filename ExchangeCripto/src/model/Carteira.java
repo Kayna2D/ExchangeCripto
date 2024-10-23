@@ -12,4 +12,24 @@ import java.util.List;
  */
 public class Carteira {
     private List<Moeda> moedas;
+
+    public Carteira() {
+    }
+        
+
+    public Carteira(List<Moeda> moedas) {
+        this.moedas = moedas;
+    }
+    
+    
+
+    public List<Moeda> getMoedas() {
+        return moedas;
+    }
+
+    public void setMoedas(List<Moeda> moedas) {
+        this.moedas = moedas;
+    }
+    
+    
 }

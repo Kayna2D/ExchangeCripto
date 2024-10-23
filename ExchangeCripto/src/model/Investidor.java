@@ -4,10 +4,7 @@
  */
 package model;
 
-/**
- *
- * @author Usuario
- */
+
 public class Investidor {
     private String nome, cpf, senha;
     private Carteira carteira;

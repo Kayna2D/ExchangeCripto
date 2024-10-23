@@ -12,6 +12,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.util.Arrays;
+import model.Bitcoin;
+import model.Carteira;
+import model.Ethereum;
+import model.Moeda;
+import model.Real;
+import model.Ripple;
+import view.MenuFrame;
 
 /**
  *
@@ -33,8 +41,36 @@ public class ControllerLogin {
             InvestidorDAO dao = new InvestidorDAO(conn);
             ResultSet res = dao.logar(investidor);
             if(res.next()) {
-                JOptionPane.showMessageDialog(view, "Login efetuado!", 
-                        "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                String nome = res.getString("nome");
+                String cpf = res.getString("cpf");
+                String senha = res.getString("senha");
+                
+                double valorReal = res.getDouble("real");
+                double valorBitcoin = res.getDouble("bitcoin");
+                double valorEthereum = res.getDouble("ethereum");
+                double valorRipple = res.getDouble("ripple");
+                
+                Moeda real = new Real();
+                real.setValor(valorReal);
+                
+                Moeda bitcoin = new Bitcoin();
+                bitcoin.setValor(valorBitcoin);
+                
+                Moeda ethereum = new Ethereum();
+                ethereum.setValor(valorEthereum);
+                
+                Moeda ripple = new Ripple();
+                ripple.setValor(valorRipple);
+                
+                Carteira carteira = new Carteira();
+                carteira.setMoedas(Arrays.asList(real, bitcoin, ethereum,
+                        ripple));
+                
+                Investidor investidorLogado = new Investidor(nome, cpf, senha, 
+                        carteira);
+                MenuFrame mf = new MenuFrame(investidorLogado);
+                mf.setVisible(true);
+                view.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(view, "Login não efetuado!", 
                         "Erro", JOptionPane.ERROR_MESSAGE);
