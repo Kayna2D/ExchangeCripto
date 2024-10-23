@@ -4,6 +4,8 @@
  */
 package view;
 
+import model.Investidor;
+
 /**
  *
  * @author Usuario
@@ -13,8 +15,9 @@ public class MenuFrame extends javax.swing.JFrame {
     /**
      * Creates new form MenuFrame
      */
-    public MenuFrame() {
+    public MenuFrame(Investidor investidor) {
         initComponents();
+        lblNome.setText(investidor.getNome());
     }
     
     

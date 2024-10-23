@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import view.MenuFrame;
 
 /**
  *
@@ -33,8 +34,13 @@ public class ControllerLogin {
             InvestidorDAO dao = new InvestidorDAO(conn);
             ResultSet res = dao.logar(investidor);
             if(res.next()) {
-                JOptionPane.showMessageDialog(view, "Login efetuado!", 
-                        "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                String nome = res.getString("nome");
+                String cpf = res.getString("cpf");
+                String senha = res.getString("senha");
+                Investidor investidorLogado = new Investidor(nome, cpf, senha);
+                MenuFrame mf = new MenuFrame(investidorLogado);
+                mf.setVisible(true);
+                view.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(view, "Login não efetuado!", 
                         "Erro", JOptionPane.ERROR_MESSAGE);
