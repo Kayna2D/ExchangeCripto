@@ -10,6 +10,10 @@ package model;
  */
 public class Bitcoin extends Moeda {
 
+    
+    
+    
+
     @Override
     public double calcularTarifa() {
         return 0;
