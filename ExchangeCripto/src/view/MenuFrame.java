@@ -4,6 +4,11 @@
  */
 package view;
 
+import controller.ControllerMenu;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import model.Investidor;
 
 /**
@@ -18,7 +23,131 @@ public class MenuFrame extends javax.swing.JFrame {
     public MenuFrame(Investidor investidor) {
         initComponents();
         lblNome.setText(investidor.getNome());
+        c = new ControllerMenu(this, investidor);
+        sf = new SaldoFrame(investidor);
     }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JMenuItem getjMenuItem1() {
+        return jMenuItem1;
+    }
+
+    public void setjMenuItem1(JMenuItem jMenuItem1) {
+        this.jMenuItem1 = jMenuItem1;
+    }
+
+    public JLabel getLblBem() {
+        return lblBem;
+    }
+
+    public void setLblBem(JLabel lblBem) {
+        this.lblBem = lblBem;
+    }
+
+    public JLabel getLblImg() {
+        return lblImg;
+    }
+
+    public void setLblImg(JLabel lblImg) {
+        this.lblImg = lblImg;
+    }
+
+    public JLabel getLblNome() {
+        return lblNome;
+    }
+
+    public void setLblNome(JLabel lblNome) {
+        this.lblNome = lblNome;
+    }
+
+    public JMenuBar getMenu() {
+        return menu;
+    }
+
+    public void setMenu(JMenuBar menu) {
+        this.menu = menu;
+    }
+
+    public JMenuItem getMnComprar() {
+        return mnComprar;
+    }
+
+    public void setMnComprar(JMenuItem mnComprar) {
+        this.mnComprar = mnComprar;
+    }
+
+    public JMenu getMnConsulta() {
+        return mnConsulta;
+    }
+
+    public void setMnConsulta(JMenu mnConsulta) {
+        this.mnConsulta = mnConsulta;
+    }
+
+    public JMenu getMnCripto() {
+        return mnCripto;
+    }
+
+    public void setMnCripto(JMenu mnCripto) {
+        this.mnCripto = mnCripto;
+    }
+
+    public JMenuItem getMnDepositar() {
+        return mnDepositar;
+    }
+
+    public void setMnDepositar(JMenuItem mnDepositar) {
+        this.mnDepositar = mnDepositar;
+    }
+
+    public JMenu getMnDinheiro() {
+        return mnDinheiro;
+    }
+
+    public void setMnDinheiro(JMenu mnDinheiro) {
+        this.mnDinheiro = mnDinheiro;
+    }
+
+    public JMenuItem getMnExtrato() {
+        return mnExtrato;
+    }
+
+    public void setMnExtrato(JMenuItem mnExtrato) {
+        this.mnExtrato = mnExtrato;
+    }
+
+    public JMenuItem getMnSacar() {
+        return mnSacar;
+    }
+
+    public void setMnSacar(JMenuItem mnSacar) {
+        this.mnSacar = mnSacar;
+    }
+
+    public JMenuItem getMnSaldo() {
+        return mnSaldo;
+    }
+
+    public void setMnSaldo(JMenuItem mnSaldo) {
+        this.mnSaldo = mnSaldo;
+    }
+
+    public JMenuItem getMnVender() {
+        return mnVender;
+    }
+
+    public void setMnVender(JMenuItem mnVender) {
+        this.mnVender = mnVender;
+    }
+    
+    
     
     
 
@@ -64,7 +193,16 @@ public class MenuFrame extends javax.swing.JFrame {
 
         mnSaldo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnSaldo.setText("Saldo");
-        mnSaldo.setActionCommand("Saldo");
+        mnSaldo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnSaldoMouseClicked(evt);
+            }
+        });
+        mnSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnSaldoActionPerformed(evt);
+            }
+        });
         mnConsulta.add(mnSaldo);
 
         mnExtrato.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -150,6 +288,14 @@ public class MenuFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mnSacarActionPerformed
 
+    private void mnSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSaldoActionPerformed
+        c.exibirSaldo(sf);
+    }//GEN-LAST:event_mnSaldoActionPerformed
+
+    private void mnSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSaldoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnSaldoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -185,6 +331,8 @@ public class MenuFrame extends javax.swing.JFrame {
 //        });
 //    }
 
+    private ControllerMenu c;
+    private SaldoFrame sf;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
