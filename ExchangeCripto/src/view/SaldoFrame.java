@@ -17,6 +17,24 @@ public class SaldoFrame extends javax.swing.JFrame {
      */
     public SaldoFrame(Investidor investidor) {
         initComponents();
+        lblNome.setText(investidor.getNome());
+        lblCpf.setText(investidor.getCpf());
+        lblReais.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(0).getValor())
+        );
+        lblBitcoin.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(0).getValor())
+        );
+        lblEthereum.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(0).getValor())
+        );
+        lblRipple.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(0).getValor())
+        );
     }
 
     /**
