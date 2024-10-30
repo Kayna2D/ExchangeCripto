@@ -34,4 +34,14 @@ public class InvestidorDAO {
         return resultado;
     }
     
+    public void atualizarReais(Investidor investidor) throws SQLException{
+        String sql = "update investidor set real = ? where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, 
+                investidor.getCarteira().getMoedas().get(0).getValor());
+        statement.setString(2, investidor.getCpf());
+        statement.execute();
+        conn.close();
+    }
+    
 }
