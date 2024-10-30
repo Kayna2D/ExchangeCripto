@@ -24,7 +24,6 @@ public class MenuFrame extends javax.swing.JFrame {
         initComponents();
         lblNome.setText(investidor.getNome());
         c = new ControllerMenu(this, investidor);
-        sf = new SaldoFrame(investidor);
     }
 
     public JLabel getjLabel1() {
@@ -215,6 +214,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
         mnDepositar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnDepositar.setText("Depositar");
+        mnDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnDepositarActionPerformed(evt);
+            }
+        });
         mnDinheiro.add(mnDepositar);
 
         mnSacar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -285,16 +289,20 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSacarActionPerformed
-        // TODO add your handling code here:
+        c.sacar();
     }//GEN-LAST:event_mnSacarActionPerformed
 
     private void mnSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSaldoActionPerformed
-        c.exibirSaldo(sf);
+        c.exibirSaldo();
     }//GEN-LAST:event_mnSaldoActionPerformed
 
     private void mnSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSaldoMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_mnSaldoMouseClicked
+
+    private void mnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnDepositarActionPerformed
+        c.depositar();
+    }//GEN-LAST:event_mnDepositarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,7 +340,6 @@ public class MenuFrame extends javax.swing.JFrame {
 //    }
 
     private ControllerMenu c;
-    private SaldoFrame sf;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;

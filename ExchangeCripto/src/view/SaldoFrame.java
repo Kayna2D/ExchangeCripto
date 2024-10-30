@@ -25,15 +25,15 @@ public class SaldoFrame extends javax.swing.JFrame {
         );
         lblBitcoin.setText(
                 String.valueOf(
-                        investidor.getCarteira().getMoedas().get(0).getValor())
+                        investidor.getCarteira().getMoedas().get(1).getValor())
         );
         lblEthereum.setText(
                 String.valueOf(
-                        investidor.getCarteira().getMoedas().get(0).getValor())
+                        investidor.getCarteira().getMoedas().get(2).getValor())
         );
         lblRipple.setText(
                 String.valueOf(
-                        investidor.getCarteira().getMoedas().get(0).getValor())
+                        investidor.getCarteira().getMoedas().get(3).getValor())
         );
     }
 
