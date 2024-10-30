@@ -289,7 +289,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSacarActionPerformed
-        // TODO add your handling code here:
+        c.sacar();
     }//GEN-LAST:event_mnSacarActionPerformed
 
     private void mnSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSaldoActionPerformed

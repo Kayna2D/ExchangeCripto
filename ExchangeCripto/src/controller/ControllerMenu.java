@@ -75,5 +75,30 @@ public class ControllerMenu {
         }
     }
     
+    public void sacar() {
+        String valorStr = JOptionPane.showInputDialog(view, 
+                "Informe o valor para depósito: ");
+        Conexao conexao = new Conexao();
+        if (valorStr != null && !valorStr.isEmpty()) {
+            try {
+                Connection conn = conexao.getConnection();
+                InvestidorDAO dao = new InvestidorDAO(conn);
+                double valor = Double.parseDouble(valorStr);
+                double saldoAtual = investidor.getCarteira().getMoedas().get(0).getValor();
+                if (valor > 0 && valor <= saldoAtual) {
+                    investidor.getCarteira().getMoedas().get(0).setValor(
+                            saldoAtual - valor);
+                    dao.atualizarReais(investidor);
+                    exibirSaldoSemSenha();
+                } else if (valor > saldoAtual) {
+                    JOptionPane.showMessageDialog(view, "Saldo insuficiente.");
+                } else {
+                    JOptionPane.showMessageDialog(view, "O valor deve ser positivo");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(view, "Erro ao atualizar saldo.");
+            }
+        }
+    }   
     
 }
