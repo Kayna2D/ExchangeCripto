@@ -44,4 +44,32 @@ public class InvestidorDAO {
         conn.close();
     }
     
+    public void atualizarMoeda(Investidor investidor, 
+            String nome, double novoValor) throws SQLException{
+        String coluna;
+        switch (nome.toLowerCase()) {
+            case "real":
+                coluna = "real";
+                break;
+            case "bitcoin":
+                coluna = "bitcoin";
+                break;
+            case "ethereum":
+                coluna = "ethereum";
+                break;
+            case "ripple":
+                coluna = "ripple";
+                break;
+            default:
+                throw new IllegalArgumentException("Moeda não suportada "
+                + nome);
+        }
+        String sql = "update investidor set " + coluna + " = ? where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, novoValor);
+        statement.setString(2, investidor.getCpf());
+        statement.executeUpdate();
+        statement.close();
+    }
+    
 }

@@ -31,5 +31,14 @@ public class Carteira {
         this.moedas = moedas;
     }
     
+    public Moeda getMoeda(String nomeMoeda) {
+        for (Moeda moeda : moedas) {
+            if (moeda.getNome().equalsIgnoreCase(nomeMoeda)) {
+                return moeda;
+            }
+        }
+        return null;
+    }
+    
     
 }

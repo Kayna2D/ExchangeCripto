@@ -158,6 +158,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         btComprarEth.setBackground(new java.awt.Color(62, 156, 53));
         btComprarEth.setText("COMPRAR");
+        btComprarEth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btComprarEthActionPerformed(evt);
+            }
+        });
 
         btVenderEth.setBackground(new java.awt.Color(228, 58, 54));
         btVenderEth.setText("VENDER");
@@ -222,6 +227,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         btComprarRip.setBackground(new java.awt.Color(62, 156, 53));
         btComprarRip.setText("COMPRAR");
+        btComprarRip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btComprarRipActionPerformed(evt);
+            }
+        });
 
         btVenderRip.setBackground(new java.awt.Color(228, 58, 54));
         btVenderRip.setText("VENDER");
@@ -325,12 +335,20 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btComprarBitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprarBitActionPerformed
-        // TODO add your handling code here:
+        c.comprar("Bitcoin");
     }//GEN-LAST:event_btComprarBitActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btComprarEthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprarEthActionPerformed
+        c.comprar("Ethereum");
+    }//GEN-LAST:event_btComprarEthActionPerformed
+
+    private void btComprarRipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprarRipActionPerformed
+        c.comprar("Ripple");
+    }//GEN-LAST:event_btComprarRipActionPerformed
 
     /**
      * @param args the command line arguments
