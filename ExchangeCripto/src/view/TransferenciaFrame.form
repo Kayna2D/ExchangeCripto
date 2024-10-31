@@ -176,6 +176,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="VENDER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVenderBitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl1">
           <Properties>
@@ -303,6 +306,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="VENDER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVenderEthActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl2">
           <Properties>
@@ -421,6 +427,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="VENDER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVenderRipActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl3">
           <Properties>

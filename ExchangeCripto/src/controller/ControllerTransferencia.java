@@ -68,5 +68,44 @@ public class ControllerTransferencia {
         }
     }
     
+    public void vender(String nomeMoeda) {
+        String quantStr = JOptionPane.showInputDialog(view, 
+                "Informe a quantidade de " + nomeMoeda + " desejada: ");
+        if (quantStr != null && !quantStr.isEmpty()) {
+            try {
+                double quantidade = Double.parseDouble(quantStr);
+                if (quantidade > 0) {
+                    venderMoeda(nomeMoeda, quantidade);
+                } else {
+                    JOptionPane.showMessageDialog(view, "Informe um número positivo");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(view, "Erro ao realizar operação.");
+            }
+        }
+    }
+    
+    
+    public void venderMoeda(String nomeMoeda, double quantidade) throws SQLException {
+        Moeda moeda = investidor.getCarteira().getMoeda(nomeMoeda);
+        Conexao conexao = new Conexao();
+        double valor = quantidade * moeda.getCotacao();
+        
+        Moeda real = investidor.getCarteira().getMoeda("Real");
+        if(moeda.getValor() >= quantidade) {
+            moeda.setValor(moeda.getValor() - quantidade);
+            real.setValor(real.getValor() + valor);
+            
+            Connection conn = conexao.getConnection();
+            InvestidorDAO dao = new InvestidorDAO(conn);
+              
+            dao.atualizarMoeda(investidor, "real", real.getValor());
+            dao.atualizarMoeda(investidor, nomeMoeda, moeda.getValor());
+                
+            JOptionPane.showMessageDialog(null, "Venda realizada com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(view, "Quantidade insuficiente!");
+        }
+    }
     
 }

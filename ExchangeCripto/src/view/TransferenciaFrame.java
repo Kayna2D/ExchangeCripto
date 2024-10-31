@@ -89,6 +89,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         btVenderBit.setBackground(new java.awt.Color(228, 58, 54));
         btVenderBit.setText("VENDER");
+        btVenderBit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVenderBitActionPerformed(evt);
+            }
+        });
 
         lbl1.setText("Cotação:");
 
@@ -166,6 +171,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         btVenderEth.setBackground(new java.awt.Color(228, 58, 54));
         btVenderEth.setText("VENDER");
+        btVenderEth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVenderEthActionPerformed(evt);
+            }
+        });
 
         lbl2.setText("Cotação:");
 
@@ -235,6 +245,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         btVenderRip.setBackground(new java.awt.Color(228, 58, 54));
         btVenderRip.setText("VENDER");
+        btVenderRip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVenderRipActionPerformed(evt);
+            }
+        });
 
         lbl3.setText("Cotação:");
 
@@ -349,6 +364,18 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     private void btComprarRipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprarRipActionPerformed
         c.comprar("Ripple");
     }//GEN-LAST:event_btComprarRipActionPerformed
+
+    private void btVenderBitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderBitActionPerformed
+        c.vender("Bitcoin");
+    }//GEN-LAST:event_btVenderBitActionPerformed
+
+    private void btVenderEthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderEthActionPerformed
+        c.vender("Ethereum");
+    }//GEN-LAST:event_btVenderEthActionPerformed
+
+    private void btVenderRipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderRipActionPerformed
+        c.vender("Ripple");
+    }//GEN-LAST:event_btVenderRipActionPerformed
 
     /**
      * @param args the command line arguments
