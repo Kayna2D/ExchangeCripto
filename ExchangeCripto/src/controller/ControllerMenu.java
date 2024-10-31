@@ -13,6 +13,7 @@ import view.SenhaDialog;
 import java.sql.SQLException;
 import java.sql.Connection;
 import view.SaldoFrame;
+import view.TransferenciaFrame;
 
 
 /**
@@ -40,6 +41,16 @@ public class ControllerMenu {
         if (sd.isSenhaCorreta()) {
             SaldoFrame sf = new SaldoFrame(investidor);
             sf.setVisible(true);
+        }
+    }
+    
+    public void exibirTransferencia() {
+        SenhaDialog sd = new SenhaDialog(view, investidor);
+        sd.setVisible(true);
+        
+        if (sd.isSenhaCorreta()) {
+            TransferenciaFrame tf = new TransferenciaFrame(investidor);
+            tf.setVisible(true);
         }
     }
     

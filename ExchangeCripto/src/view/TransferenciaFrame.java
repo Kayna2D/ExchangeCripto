@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.ControllerTransferencia;
+import model.Investidor;
+
 /**
  *
  * @author Usuario
@@ -13,8 +16,9 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     /**
      * Creates new form TransferenciaFrame
      */
-    public TransferenciaFrame() {
+    public TransferenciaFrame(Investidor investidor) {
         initComponents();
+        c = new ControllerTransferencia(this, investidor);
     }
 
     /**
@@ -261,6 +265,11 @@ public class TransferenciaFrame extends javax.swing.JFrame {
         );
 
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/volta.png"))); // NOI18N
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,6 +316,10 @@ public class TransferenciaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btComprarBitActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +355,7 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 //        });
 //    }
 
+    ControllerTransferencia c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btComprarBit;
     private javax.swing.JButton btComprarEth;
