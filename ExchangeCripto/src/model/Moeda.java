@@ -11,6 +11,7 @@ package model;
 public abstract class Moeda implements Tarifacao {
     private String nome;
     private double valor;
+    private double cotacao;
 
     public String getNome() {
         return nome;
@@ -27,6 +28,15 @@ public abstract class Moeda implements Tarifacao {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+    public double getCotacao() {
+        return cotacao;
+    }
+
+    public void setCotacao(double cotacao) {
+        this.cotacao = cotacao;
+    }
         
+    
         
 }

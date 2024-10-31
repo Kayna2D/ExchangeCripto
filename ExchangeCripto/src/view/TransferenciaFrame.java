@@ -18,6 +18,18 @@ public class TransferenciaFrame extends javax.swing.JFrame {
      */
     public TransferenciaFrame(Investidor investidor) {
         initComponents();
+        lblCotacaoBit.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(1).getCotacao()
+                ));
+        lblCotacaoEth.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(2).getCotacao()
+                ));
+        lblCotacaoRip.setText(
+                String.valueOf(
+                        investidor.getCarteira().getMoedas().get(3).getCotacao()
+                ));
         c = new ControllerTransferencia(this, investidor);
     }
 
@@ -216,7 +228,7 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         lbl3.setText("Cotação:");
 
-        lblCotacaoRip.setText("2.99");
+        lblCotacaoRip.setText("3.99");
 
         lblBrl3.setText("BRL");
 
