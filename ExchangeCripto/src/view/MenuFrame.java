@@ -75,11 +75,11 @@ public class MenuFrame extends javax.swing.JFrame {
     }
 
     public JMenuItem getMnComprar() {
-        return mnComprar;
+        return mnTransferencia;
     }
 
     public void setMnComprar(JMenuItem mnComprar) {
-        this.mnComprar = mnComprar;
+        this.mnTransferencia = mnComprar;
     }
 
     public JMenu getMnConsulta() {
@@ -138,13 +138,15 @@ public class MenuFrame extends javax.swing.JFrame {
         this.mnSaldo = mnSaldo;
     }
 
-    public JMenuItem getMnVender() {
-        return mnVender;
+    public JMenuItem getMnTransferencia() {
+        return mnTransferencia;
     }
 
-    public void setMnVender(JMenuItem mnVender) {
-        this.mnVender = mnVender;
+    public void setMnTransferencia(JMenuItem mnTransferencia) {
+        this.mnTransferencia = mnTransferencia;
     }
+
+    
     
     
     
@@ -171,8 +173,7 @@ public class MenuFrame extends javax.swing.JFrame {
         mnDepositar = new javax.swing.JMenuItem();
         mnSacar = new javax.swing.JMenuItem();
         mnCripto = new javax.swing.JMenu();
-        mnComprar = new javax.swing.JMenuItem();
-        mnVender = new javax.swing.JMenuItem();
+        mnTransferencia = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -234,13 +235,9 @@ public class MenuFrame extends javax.swing.JFrame {
 
         mnCripto.setText("Criptomoedas");
 
-        mnComprar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnComprar.setText("Comprar");
-        mnCripto.add(mnComprar);
-
-        mnVender.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnVender.setText("Vender");
-        mnCripto.add(mnVender);
+        mnTransferencia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnTransferencia.setText("Transfêrencia");
+        mnCripto.add(mnTransferencia);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Atualizar cotação");
@@ -347,7 +344,6 @@ public class MenuFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblNome;
     private javax.swing.JMenuBar menu;
-    private javax.swing.JMenuItem mnComprar;
     private javax.swing.JMenu mnConsulta;
     private javax.swing.JMenu mnCripto;
     private javax.swing.JMenuItem mnDepositar;
@@ -355,6 +351,6 @@ public class MenuFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnExtrato;
     private javax.swing.JMenuItem mnSacar;
     private javax.swing.JMenuItem mnSaldo;
-    private javax.swing.JMenuItem mnVender;
+    private javax.swing.JMenuItem mnTransferencia;
     // End of variables declaration//GEN-END:variables
 }
