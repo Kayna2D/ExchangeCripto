@@ -33,6 +33,7 @@ public class TransferenciaFrame extends javax.swing.JFrame {
         btVenderBit = new javax.swing.JButton();
         lbl1 = new javax.swing.JLabel();
         lblCotacaoBit = new javax.swing.JLabel();
+        lblBrl1 = new javax.swing.JLabel();
         lblTitulo1 = new javax.swing.JLabel();
         pnlBitcoin1 = new javax.swing.JPanel();
         imgEthereum = new javax.swing.JLabel();
@@ -41,6 +42,7 @@ public class TransferenciaFrame extends javax.swing.JFrame {
         btVenderEth = new javax.swing.JButton();
         lbl2 = new javax.swing.JLabel();
         lblCotacaoEth = new javax.swing.JLabel();
+        lblBrl2 = new javax.swing.JLabel();
         pnlBitcoin2 = new javax.swing.JPanel();
         imgRipple = new javax.swing.JLabel();
         lblRipple = new javax.swing.JLabel();
@@ -48,6 +50,7 @@ public class TransferenciaFrame extends javax.swing.JFrame {
         btVenderRip = new javax.swing.JButton();
         lbl3 = new javax.swing.JLabel();
         lblCotacaoRip = new javax.swing.JLabel();
+        lblBrl3 = new javax.swing.JLabel();
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,33 +65,50 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         btComprarBit.setBackground(new java.awt.Color(62, 156, 53));
         btComprarBit.setText("COMPRAR");
+        btComprarBit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btComprarBitActionPerformed(evt);
+            }
+        });
 
         btVenderBit.setBackground(new java.awt.Color(228, 58, 54));
         btVenderBit.setText("VENDER");
 
         lbl1.setText("Cotação:");
 
-        lblCotacaoBit.setText("0.0");
+        lblCotacaoBit.setText("417329.37");
+
+        lblBrl1.setText("BRL");
 
         javax.swing.GroupLayout pnlBitcoinLayout = new javax.swing.GroupLayout(pnlBitcoin);
         pnlBitcoin.setLayout(pnlBitcoinLayout);
         pnlBitcoinLayout.setHorizontalGroup(
             pnlBitcoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBitcoinLayout.createSequentialGroup()
-                .addComponent(btComprarBit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btVenderBit))
-            .addGroup(pnlBitcoinLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(lblBitcoin))
-            .addGroup(pnlBitcoinLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(imgBitcoin))
-            .addGroup(pnlBitcoinLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbl1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCotacaoBit))
+                .addGroup(pnlBitcoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBitcoinLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(lbl1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCotacaoBit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBrl1))
+                    .addGroup(pnlBitcoinLayout.createSequentialGroup()
+                        .addGroup(pnlBitcoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlBitcoinLayout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(lblBitcoin))
+                            .addGroup(pnlBitcoinLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(imgBitcoin))
+                            .addGroup(pnlBitcoinLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btComprarBit, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBitcoinLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btVenderBit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlBitcoinLayout.setVerticalGroup(
             pnlBitcoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,14 +116,16 @@ public class TransferenciaFrame extends javax.swing.JFrame {
                 .addComponent(lblBitcoin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imgBitcoin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addGroup(pnlBitcoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl1)
-                    .addComponent(lblCotacaoBit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlBitcoinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btComprarBit)
-                    .addComponent(btVenderBit)))
+                    .addComponent(lblCotacaoBit)
+                    .addComponent(lblBrl1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btComprarBit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btVenderBit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -126,27 +148,35 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         lbl2.setText("Cotação:");
 
-        lblCotacaoEth.setText("0.0");
+        lblCotacaoEth.setText("15252.45");
+
+        lblBrl2.setText("BRL");
 
         javax.swing.GroupLayout pnlBitcoin1Layout = new javax.swing.GroupLayout(pnlBitcoin1);
         pnlBitcoin1.setLayout(pnlBitcoin1Layout);
         pnlBitcoin1Layout.setHorizontalGroup(
             pnlBitcoin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBitcoin1Layout.createSequentialGroup()
-                .addComponent(btComprarEth)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btVenderEth))
+                .addGroup(pnlBitcoin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBitcoin1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(imgEthereum))
+                    .addGroup(pnlBitcoin1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(lblEthereum)))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlBitcoin1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(imgEthereum))
-            .addGroup(pnlBitcoin1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbl2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCotacaoEth))
-            .addGroup(pnlBitcoin1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(lblEthereum))
+                .addContainerGap()
+                .addGroup(pnlBitcoin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btComprarEth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlBitcoin1Layout.createSequentialGroup()
+                        .addComponent(lbl2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCotacaoEth)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(lblBrl2))
+                    .addComponent(btVenderEth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlBitcoin1Layout.setVerticalGroup(
             pnlBitcoin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,14 +184,16 @@ public class TransferenciaFrame extends javax.swing.JFrame {
                 .addComponent(lblEthereum)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imgEthereum)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addGroup(pnlBitcoin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl2)
-                    .addComponent(lblCotacaoEth))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlBitcoin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btComprarEth)
-                    .addComponent(btVenderEth)))
+                    .addComponent(lblCotacaoEth)
+                    .addComponent(lblBrl2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btComprarEth)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btVenderEth)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlBitcoin2.setBackground(new java.awt.Color(255, 255, 255));
@@ -180,27 +212,35 @@ public class TransferenciaFrame extends javax.swing.JFrame {
 
         lbl3.setText("Cotação:");
 
-        lblCotacaoRip.setText("0.0");
+        lblCotacaoRip.setText("2.99");
+
+        lblBrl3.setText("BRL");
 
         javax.swing.GroupLayout pnlBitcoin2Layout = new javax.swing.GroupLayout(pnlBitcoin2);
         pnlBitcoin2.setLayout(pnlBitcoin2Layout);
         pnlBitcoin2Layout.setHorizontalGroup(
             pnlBitcoin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBitcoin2Layout.createSequentialGroup()
-                .addComponent(btComprarRip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btVenderRip))
+                .addGroup(pnlBitcoin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBitcoin2Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(imgRipple))
+                    .addGroup(pnlBitcoin2Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(lblRipple)))
+                .addGap(0, 31, Short.MAX_VALUE))
             .addGroup(pnlBitcoin2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(imgRipple))
-            .addGroup(pnlBitcoin2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbl3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCotacaoRip))
-            .addGroup(pnlBitcoin2Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(lblRipple))
+                .addContainerGap()
+                .addGroup(pnlBitcoin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btComprarRip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlBitcoin2Layout.createSequentialGroup()
+                        .addComponent(lbl3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCotacaoRip)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBrl3))
+                    .addComponent(btVenderRip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlBitcoin2Layout.setVerticalGroup(
             pnlBitcoin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,14 +248,16 @@ public class TransferenciaFrame extends javax.swing.JFrame {
                 .addComponent(lblRipple)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imgRipple)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(pnlBitcoin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl3)
-                    .addComponent(lblCotacaoRip))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlBitcoin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btComprarRip)
-                    .addComponent(btVenderRip)))
+                    .addComponent(lblCotacaoRip)
+                    .addComponent(lblBrl3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btComprarRip)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btVenderRip)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/volta.png"))); // NOI18N
@@ -237,7 +279,7 @@ public class TransferenciaFrame extends javax.swing.JFrame {
                         .addComponent(lblTitulo1)))
                 .addGap(24, 24, 24)
                 .addComponent(pnlBitcoin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,15 +293,19 @@ public class TransferenciaFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlBitcoin2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlBitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlBitcoin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pnlBitcoin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlBitcoin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btComprarBitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btComprarBitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btComprarBitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,6 +357,9 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lbl3;
     private javax.swing.JLabel lblBitcoin;
+    private javax.swing.JLabel lblBrl1;
+    private javax.swing.JLabel lblBrl2;
+    private javax.swing.JLabel lblBrl3;
     private javax.swing.JLabel lblCotacaoBit;
     private javax.swing.JLabel lblCotacaoEth;
     private javax.swing.JLabel lblCotacaoRip;

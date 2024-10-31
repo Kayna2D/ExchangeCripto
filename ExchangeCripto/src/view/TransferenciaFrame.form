@@ -39,7 +39,7 @@
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="pnlBitcoin2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,9 +57,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnlBitcoin2" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pnlBitcoin" min="-2" max="-2" attributes="0"/>
-                          <Component id="pnlBitcoin1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="pnlBitcoin" max="32767" attributes="0"/>
+                          <Component id="pnlBitcoin1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -85,24 +85,39 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="btComprarBit" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Component id="lbl1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCotacaoBit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblBrl1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="lblBitcoin" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="imgBitcoin" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btComprarBit" min="-2" pref="147" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btVenderBit" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btVenderBit" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                  <Component id="lblBitcoin" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="imgBitcoin" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="lbl1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblCotacaoBit" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,16 +127,17 @@
                   <Component id="lblBitcoin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="imgBitcoin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCotacaoBit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblBrl1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btComprarBit" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btVenderBit" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btComprarBit" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btVenderBit" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -149,6 +165,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="COMPRAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btComprarBitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btVenderBit">
           <Properties>
@@ -165,7 +184,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCotacaoBit">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0.0"/>
+            <Property name="text" type="java.lang.String" value="417329.37"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblBrl1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BRL"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -193,24 +217,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="btComprarEth" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="imgEthereum" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="lblEthereum" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btVenderEth" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="imgEthereum" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="lbl2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btComprarEth" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lbl2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCotacaoEth" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
+                          <Component id="lblBrl2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btVenderEth" alignment="0" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblCotacaoEth" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  <Component id="lblEthereum" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -220,16 +253,17 @@
                   <Component id="lblEthereum" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="imgEthereum" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbl2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCotacaoEth" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblBrl2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btComprarEth" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btVenderEth" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btComprarEth" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btVenderEth" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -274,7 +308,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCotacaoEth">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0.0"/>
+            <Property name="text" type="java.lang.String" value="15252.45"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblBrl2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BRL"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -294,24 +333,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="btComprarRip" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="imgRipple" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="lblRipple" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btVenderRip" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="imgRipple" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="lbl3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btComprarRip" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lbl3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCotacaoRip" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblBrl3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btVenderRip" alignment="0" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblCotacaoRip" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                  <Component id="lblRipple" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -321,16 +369,17 @@
                   <Component id="lblRipple" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="imgRipple" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbl3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCotacaoRip" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblBrl3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btComprarRip" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btVenderRip" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btComprarRip" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btVenderRip" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -374,7 +423,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCotacaoRip">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0.0"/>
+            <Property name="text" type="java.lang.String" value="2.99"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblBrl3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BRL"/>
           </Properties>
         </Component>
       </SubComponents>
