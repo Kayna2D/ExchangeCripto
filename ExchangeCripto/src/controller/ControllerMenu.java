@@ -5,6 +5,7 @@
 package controller;
 
 import DAO.Conexao;
+import DAO.CotacaoDAO;
 import DAO.InvestidorDAO;
 import javax.swing.JOptionPane;
 import model.Investidor;
@@ -12,6 +13,8 @@ import view.MenuFrame;
 import view.SenhaDialog;
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.util.Random;
+import model.Moeda;
 import view.SaldoFrame;
 import view.TransferenciaFrame;
 
@@ -110,6 +113,37 @@ public class ControllerMenu {
                 JOptionPane.showMessageDialog(view, "Erro ao atualizar saldo.");
             }
         }
-    }   
+    }
     
+    public void atualizarCotacao() {
+    Random random = new Random();
+    Conexao conexao = new Conexao();
+    
+    try {
+        Connection conn = conexao.getConnection();
+        CotacaoDAO dao = new CotacaoDAO(conn);
+        
+        for (Moeda moeda : investidor.getCarteira().getMoedas()) {
+            if (moeda.getNome().equalsIgnoreCase("Real")) {
+                continue;
+            }
+            double variacao = (random.nextDouble() * 0.1) - 0.05;
+            double novaCotacao = moeda.getCotacao() * (1 + variacao);
+            moeda.setCotacao(novaCotacao);
+            
+            dao.atualizarCotacao(moeda.getNome(), novaCotacao);
+        }
+        
+        
+        
+        JOptionPane.showMessageDialog(view, "Cotações atualizadas com sucesso");
+        
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(view, "Erro ao atualizar cotação: " + e.getMessage(),
+                "Erro", JOptionPane.ERROR_MESSAGE);
+    } 
 }
+
+        }
+    
+

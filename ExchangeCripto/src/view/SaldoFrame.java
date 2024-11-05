@@ -20,19 +20,19 @@ public class SaldoFrame extends javax.swing.JFrame {
         lblNome.setText(investidor.getNome());
         lblCpf.setText(investidor.getCpf());
         lblReais.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(0).getValor())
         );
         lblBitcoin.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(1).getValor())
         );
         lblEthereum.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(2).getValor())
         );
         lblRipple.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(3).getValor())
         );
     }

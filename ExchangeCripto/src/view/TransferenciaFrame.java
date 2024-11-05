@@ -19,15 +19,15 @@ public class TransferenciaFrame extends javax.swing.JFrame {
     public TransferenciaFrame(Investidor investidor) {
         initComponents();
         lblCotacaoBit.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(1).getCotacao()
                 ));
         lblCotacaoEth.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(2).getCotacao()
                 ));
         lblCotacaoRip.setText(
-                String.valueOf(
+                String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(3).getCotacao()
                 ));
         c = new ControllerTransferencia(this, investidor);
