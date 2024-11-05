@@ -237,6 +237,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
         mnTransferencia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnTransferencia.setText("Transfêrencia");
+        mnTransferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnTransferenciaActionPerformed(evt);
+            }
+        });
         mnCripto.add(mnTransferencia);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -300,6 +305,10 @@ public class MenuFrame extends javax.swing.JFrame {
     private void mnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnDepositarActionPerformed
         c.depositar();
     }//GEN-LAST:event_mnDepositarActionPerformed
+
+    private void mnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnTransferenciaActionPerformed
+        c.exibirTransferencia();
+    }//GEN-LAST:event_mnTransferenciaActionPerformed
 
     /**
      * @param args the command line arguments

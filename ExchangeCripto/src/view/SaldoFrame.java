@@ -90,7 +90,7 @@ public class SaldoFrame extends javax.swing.JFrame {
 
         lblRipple.setText("0.0");
 
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/voltar.png"))); // NOI18N
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/volta.png"))); // NOI18N
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);

@@ -9,5 +9,6 @@ package model;
  * @author Usuario
  */
 public interface Tarifacao {
-    double calcularTarifa();
+    double calcularTarifa(double quant);
+    double calcularTarifaVenda(double quant);
 }

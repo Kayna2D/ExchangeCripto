@@ -6,6 +6,7 @@ package controller;
 
 import DAO.InvestidorDAO;
 import DAO.Conexao;
+import DAO.CotacaoDAO;
 import model.Investidor;
 import view.LoginFrame;
 import java.sql.Connection;
@@ -51,16 +52,26 @@ public class ControllerLogin {
                 double valorRipple = res.getDouble("ripple");
                 
                 Moeda real = new Real();
+                real.setNome("Real");
                 real.setValor(valorReal);
                 
                 Moeda bitcoin = new Bitcoin();
+                bitcoin.setNome("Bitcoin");
                 bitcoin.setValor(valorBitcoin);
                 
                 Moeda ethereum = new Ethereum();
+                ethereum.setNome("Ethereum");
                 ethereum.setValor(valorEthereum);
                 
                 Moeda ripple = new Ripple();
+                ripple.setNome("Ripple");
                 ripple.setValor(valorRipple);
+                
+                CotacaoDAO cotacaoDAO = new CotacaoDAO(conn);
+                real.setCotacao(1);
+                bitcoin.setCotacao(cotacaoDAO.getCotacao("bitcoin"));
+                ethereum.setCotacao(cotacaoDAO.getCotacao("ethereum"));
+                ripple.setCotacao(cotacaoDAO.getCotacao("ripple"));
                 
                 Carteira carteira = new Carteira();
                 carteira.setMoedas(Arrays.asList(real, bitcoin, ethereum,
