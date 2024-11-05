@@ -15,8 +15,13 @@ public class Bitcoin extends Moeda {
     
 
     @Override
-    public double calcularTarifa() {
-        return 0;
+    public double calcularTarifa(double quant) {
+        return quant * getCotacao() * 0.02;
+    }
+    
+    @Override
+    public double calcularTarifaVenda(double quant) {
+        return quant * getCotacao() * 0.03;
     }
     
 }

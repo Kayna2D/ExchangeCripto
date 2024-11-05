@@ -11,7 +11,12 @@ package model;
 public class Real extends Moeda{
 
     @Override
-    public double calcularTarifa() {
+    public double calcularTarifa(double quant) {
+        return 0;
+    }
+    
+    @Override
+    public double calcularTarifaVenda(double quant) {
         return 0;
     }
     

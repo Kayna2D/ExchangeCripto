@@ -48,7 +48,9 @@ public class ControllerTransferencia {
     public void comprarMoeda(String nomeMoeda, double quantidade) throws SQLException {
         Moeda moeda = investidor.getCarteira().getMoeda(nomeMoeda);
         Conexao conexao = new Conexao();
-        double valor = quantidade * moeda.getCotacao();
+        double valorBruto = quantidade * moeda.getCotacao();
+        double tarifa = moeda.calcularTarifa(quantidade);
+        double valor = valorBruto + tarifa; 
         
         Moeda real = investidor.getCarteira().getMoeda("Real");
         if (real.getValor() >= valor) {
@@ -89,7 +91,9 @@ public class ControllerTransferencia {
     public void venderMoeda(String nomeMoeda, double quantidade) throws SQLException {
         Moeda moeda = investidor.getCarteira().getMoeda(nomeMoeda);
         Conexao conexao = new Conexao();
-        double valor = quantidade * moeda.getCotacao();
+        double valorBruto = quantidade * moeda.getCotacao();
+        double tarifa = moeda.calcularTarifa(quantidade);
+        double valor = valorBruto - tarifa;
         
         Moeda real = investidor.getCarteira().getMoeda("Real");
         if(moeda.getValor() >= quantidade) {
