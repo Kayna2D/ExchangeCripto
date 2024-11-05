@@ -246,6 +246,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Atualizar cotação");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         mnCripto.add(jMenuItem1);
 
         menu.add(mnCripto);
@@ -309,6 +314,10 @@ public class MenuFrame extends javax.swing.JFrame {
     private void mnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnTransferenciaActionPerformed
         c.exibirTransferencia();
     }//GEN-LAST:event_mnTransferenciaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        c.atualizarCotacao();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

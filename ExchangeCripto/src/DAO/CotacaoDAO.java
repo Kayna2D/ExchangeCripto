@@ -31,4 +31,14 @@ public class CotacaoDAO {
         }
         return 0;
     }
-}
+    
+    public void atualizarCotacao(String nome, double novaCotacao) throws SQLException {
+        String sql = "update cotacoes set cotacao = ? where nome_moeda = ?";
+        PreparedStatement statement = conn.prepareStatement(sql); 
+        statement.setDouble(1, novaCotacao);
+        statement.setString(2, nome);
+        statement.execute();
+        conn.close();
+        }
+    }
+
