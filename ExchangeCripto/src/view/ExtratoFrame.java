@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.ControllerExtrato;
+import javax.swing.JTextArea;
 import model.Investidor;
 
 /**
@@ -19,7 +21,19 @@ public class ExtratoFrame extends javax.swing.JFrame {
         initComponents();
         lblNome.setText(String.format("Nome: %s", investidor.getNome()));
         lblCpf.setText(String.format("CPF: %s", investidor.getCpf()));
+        c = new ControllerExtrato(this, investidor);
+        c.consultarExtrato();
     }
+
+    public JTextArea getTxtExtrato() {
+        return txtExtrato;
+    }
+
+    public void setTxtExtrato(JTextArea txtExtrato) {
+        this.txtExtrato = txtExtrato;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,8 +46,10 @@ public class ExtratoFrame extends javax.swing.JFrame {
 
         lblNome = new javax.swing.JLabel();
         lblCpf = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtExtrato = new javax.swing.JTextArea();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,39 +57,56 @@ public class ExtratoFrame extends javax.swing.JFrame {
 
         lblCpf.setText("cpf");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtExtrato.setEditable(false);
+        txtExtrato.setColumns(20);
+        txtExtrato.setRows(5);
+        jScrollPane1.setViewportView(txtExtrato);
+
+        jScrollPane2.setViewportView(jScrollPane1);
+
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/volta.png"))); // NOI18N
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCpf)
-                    .addComponent(lblNome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCpf)
+                            .addComponent(lblNome)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btVoltar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addComponent(btVoltar)
+                .addGap(12, 12, 12)
                 .addComponent(lblNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCpf)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,10 +143,13 @@ public class ExtratoFrame extends javax.swing.JFrame {
 //        });
 //    }
 
+    ControllerExtrato c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btVoltar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JTextArea txtExtrato;
     // End of variables declaration//GEN-END:variables
 }
