@@ -5,6 +5,7 @@
 package controller;
 
 import DAO.Conexao;
+import DAO.ExtratoDAO;
 import DAO.InvestidorDAO;
 import model.Investidor;
 import model.Moeda;
@@ -60,9 +61,23 @@ public class ControllerTransferencia {
            
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
+            ExtratoDAO extratoDAO = new ExtratoDAO(conn);
               
             dao.atualizarMoeda(investidor, "real", real.getValor());
             dao.atualizarMoeda(investidor, nomeMoeda, moeda.getValor());
+            
+            extratoDAO.registrarTransacao(
+            investidor.getCpf(),
+                    '+',
+                    quantidade,
+                    nomeMoeda,
+                    moeda.getCotacao(),
+                    tarifa,
+                    real.getValor(),
+                    investidor.getCarteira().getMoeda("Bitcoin").getValor(),
+                    investidor.getCarteira().getMoeda("Ethereum").getValor(),
+                    investidor.getCarteira().getMoeda("Ripple").getValor()
+            );
                 
             JOptionPane.showMessageDialog(null, "Compra realizada com sucesso!");
         } else {
@@ -102,9 +117,23 @@ public class ControllerTransferencia {
             
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
+            ExtratoDAO extratoDAO = new ExtratoDAO(conn);
               
             dao.atualizarMoeda(investidor, "real", real.getValor());
             dao.atualizarMoeda(investidor, nomeMoeda, moeda.getValor());
+            
+            extratoDAO.registrarTransacao(
+            investidor.getCpf(),
+                    '-',
+                    quantidade,
+                    nomeMoeda,
+                    moeda.getCotacao(),
+                    tarifa,
+                    real.getValor(),
+                    investidor.getCarteira().getMoeda("Bitcoin").getValor(),
+                    investidor.getCarteira().getMoeda("Ethereum").getValor(),
+                    investidor.getCarteira().getMoeda("Ripple").getValor()
+            );
                 
             JOptionPane.showMessageDialog(null, "Venda realizada com sucesso!");
         } else {
