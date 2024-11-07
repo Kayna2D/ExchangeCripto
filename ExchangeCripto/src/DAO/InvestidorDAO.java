@@ -41,7 +41,6 @@ public class InvestidorDAO {
                 investidor.getCarteira().getMoedas().get(0).getValor());
         statement.setString(2, investidor.getCpf());
         statement.execute();
-        conn.close();
     }
     
     public void atualizarMoeda(Investidor investidor, 
