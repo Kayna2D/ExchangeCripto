@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.Random;
 import model.Moeda;
+import view.ExtratoFrame;
 import view.SaldoFrame;
 import view.TransferenciaFrame;
 
@@ -54,6 +55,16 @@ public class ControllerMenu {
         if (sd.isSenhaCorreta()) {
             TransferenciaFrame tf = new TransferenciaFrame(investidor);
             tf.setVisible(true);
+        }
+    }
+    
+    public void exibirExtrato() {
+        SenhaDialog sd = new SenhaDialog(view, investidor);
+        sd.setVisible(true);
+        
+        if (sd.isSenhaCorreta()) {
+            ExtratoFrame ef = new ExtratoFrame(investidor);
+            ef.setVisible(true);
         }
     }
     
