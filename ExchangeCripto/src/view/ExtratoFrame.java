@@ -17,6 +17,8 @@ public class ExtratoFrame extends javax.swing.JFrame {
      */
     public ExtratoFrame(Investidor investidor) {
         initComponents();
+        lblNome.setText(String.format("Nome: %s", investidor.getNome()));
+        lblCpf.setText(String.format("CPF: %s", investidor.getCpf()));
     }
 
     /**
