@@ -207,6 +207,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
         mnExtrato.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnExtrato.setText("Extrato");
+        mnExtrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnExtratoActionPerformed(evt);
+            }
+        });
         mnConsulta.add(mnExtrato);
 
         menu.add(mnConsulta);
@@ -318,6 +323,10 @@ public class MenuFrame extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         c.atualizarCotacao();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mnExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExtratoActionPerformed
+        c.exibirExtrato();
+    }//GEN-LAST:event_mnExtratoActionPerformed
 
     /**
      * @param args the command line arguments

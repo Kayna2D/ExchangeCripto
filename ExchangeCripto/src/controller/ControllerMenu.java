@@ -6,6 +6,7 @@ package controller;
 
 import DAO.Conexao;
 import DAO.CotacaoDAO;
+import DAO.ExtratoDAO;
 import DAO.InvestidorDAO;
 import javax.swing.JOptionPane;
 import model.Investidor;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.Random;
 import model.Moeda;
+import view.ExtratoFrame;
 import view.SaldoFrame;
 import view.TransferenciaFrame;
 
@@ -57,6 +59,16 @@ public class ControllerMenu {
         }
     }
     
+    public void exibirExtrato() {
+        SenhaDialog sd = new SenhaDialog(view, investidor);
+        sd.setVisible(true);
+        
+        if (sd.isSenhaCorreta()) {
+            ExtratoFrame ef = new ExtratoFrame(investidor);
+            ef.setVisible(true);
+        }
+    }
+    
     public void exibirSaldoSemSenha() {
         SaldoFrame sf = new SaldoFrame(investidor);
         sf.setVisible(true);
@@ -71,6 +83,7 @@ public class ControllerMenu {
             try {
                 Connection conn = conexao.getConnection();
                 InvestidorDAO dao = new InvestidorDAO(conn);
+                ExtratoDAO extratoDAO = new ExtratoDAO(conn);
                 double valor = Double.parseDouble(valorStr);
                 if (valor > 0) {
                     investidor.getCarteira().getMoedas().get(0).setValor(
@@ -78,13 +91,28 @@ public class ControllerMenu {
                                     + valor
                     );
                     dao.atualizarReais(investidor);
+                    
+                    extratoDAO.registrarTransacao(
+            investidor.getCpf(),
+                    '+',
+                    valor,
+                    "Real",
+                    0,
+                    0,
+                    investidor.getCarteira().getMoeda("Real").getValor(),
+                    investidor.getCarteira().getMoeda("Bitcoin").getValor(),
+                    investidor.getCarteira().getMoeda("Ethereum").getValor(),
+                    investidor.getCarteira().getMoeda("Ripple").getValor()
+            );
+                    
                     exibirSaldoSemSenha();
                 } else {
                     JOptionPane.showMessageDialog(view, 
                             "O valor deve ser positivo");
                 }
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(view, "Erro ao atualizar saldo.");
+                JOptionPane.showMessageDialog(view, "Erro ao atualizar saldo: "
+                + e.getMessage());
             }
         }
     }
@@ -97,12 +125,27 @@ public class ControllerMenu {
             try {
                 Connection conn = conexao.getConnection();
                 InvestidorDAO dao = new InvestidorDAO(conn);
+                ExtratoDAO extratoDAO = new ExtratoDAO(conn);
                 double valor = Double.parseDouble(valorStr);
                 double saldoAtual = investidor.getCarteira().getMoedas().get(0).getValor();
                 if (valor > 0 && valor <= saldoAtual) {
                     investidor.getCarteira().getMoedas().get(0).setValor(
                             saldoAtual - valor);
                     dao.atualizarReais(investidor);
+                    
+                    extratoDAO.registrarTransacao(
+            investidor.getCpf(),
+                    '-',
+                    valor,
+                    "Real",
+                    0,
+                    0,
+                    investidor.getCarteira().getMoeda("Real").getValor(),
+                    investidor.getCarteira().getMoeda("Bitcoin").getValor(),
+                    investidor.getCarteira().getMoeda("Ethereum").getValor(),
+                    investidor.getCarteira().getMoeda("Ripple").getValor()
+            );
+                    
                     exibirSaldoSemSenha();
                 } else if (valor > saldoAtual) {
                     JOptionPane.showMessageDialog(view, "Saldo insuficiente.");
