@@ -8,6 +8,7 @@ import controller.ControllerLogin;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -80,13 +81,15 @@ public class LoginFrame extends javax.swing.JFrame {
         this.txtCpf = txtCpf;
     }
 
-    public JTextField getTxtSenha() {
+    public JPasswordField getTxtSenha() {
         return txtSenha;
     }
 
-    public void setTxtSenha(JTextField txtSenha) {
+    public void setTxtSenha(JPasswordField txtSenha) {
         this.txtSenha = txtSenha;
     }
+
+    
     
     
 
@@ -101,11 +104,11 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btLogin = new javax.swing.JButton();
-        txtSenha = new javax.swing.JTextField();
         lblSenha = new javax.swing.JLabel();
         lblCpf = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ExhangeCripto");
@@ -123,8 +126,6 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
-        txtSenha.setForeground(new java.awt.Color(50, 146, 57));
-
         lblSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblSenha.setForeground(new java.awt.Color(50, 146, 57));
         lblSenha.setText("Senha:");
@@ -140,6 +141,8 @@ public class LoginFrame extends javax.swing.JFrame {
         lblTitulo.setForeground(new java.awt.Color(50, 146, 57));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("ExchangeCripto");
+
+        txtSenha.setForeground(new java.awt.Color(50, 146, 57));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,8 +165,8 @@ public class LoginFrame extends javax.swing.JFrame {
                                         .addComponent(lblCpf)
                                         .addGap(31, 31, 31)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCpf)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                    .addComponent(txtSenha)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(154, 154, 154)
                                 .addComponent(btLogin)))
@@ -179,9 +182,9 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(lblCpf)
                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSenha)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 30, Short.MAX_VALUE))
@@ -252,6 +255,6 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
