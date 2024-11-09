@@ -20,7 +20,13 @@ public class ExtratoFrame extends javax.swing.JFrame {
     public ExtratoFrame(Investidor investidor) {
         initComponents();
         lblNome.setText(String.format("Nome: %s", investidor.getNome()));
-        lblCpf.setText(String.format("CPF: %s", investidor.getCpf()));
+        lblCpf.setText(
+                String.format("CPF: %s.%s.%s-%s", 
+                    investidor.getCpf().substring(0, 3), 
+                    investidor.getCpf().substring(3, 6), 
+                    investidor.getCpf().substring(6, 9), 
+                    investidor.getCpf().substring(9, 11))
+        );
         c = new ControllerExtrato(this, investidor);
         c.consultarExtrato();
     }

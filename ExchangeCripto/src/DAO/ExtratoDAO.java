@@ -46,29 +46,30 @@ public class ExtratoDAO {
     
     public List<String> consultar(String cpf) throws SQLException {
         List<String> extrato = new ArrayList<>();
-        String sql = "select data_hora, tipo_transacao, valor, moeda, cotacao, "
-                + "taxa, saldo_real, saldo_btc, saldo_eth, saldo_xrp " +
+        String sql = "select to_char(data_hora, 'DD-MM-YYYY HH24:MI') "
+                + "as data_formatada, " 
+                + "tipo_transacao, valor, moeda, cotacao, taxa, saldo_real, "
+                + "saldo_btc, saldo_eth, saldo_xrp " +
                  "from extrato where cpf = ? order by data_hora";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, cpf);
-            try (ResultSet resultado = statement.executeQuery()) {
-                while (resultado.next()) {
-                    String dataHora = resultado.getTimestamp("data_hora").toString();
-                    char tipo = resultado.getString("tipo_transacao").charAt(0);
-                    double valor = resultado.getDouble("valor");
-                    String moeda = resultado.getString("moeda");
-                    double cotacao = resultado.getDouble("cotacao");
-                    double taxa = resultado.getDouble("taxa");
-                    double saldoReal = resultado.getDouble("saldo_real");
-                    double saldoBtc = resultado.getDouble("saldo_btc");
-                    double saldoEth = resultado.getDouble("saldo_eth");
-                    double saldoXrp = resultado.getDouble("saldo_xrp");
-                    
-                    extrato.add(String.format("%s %c %.2f %s CT: %.2f TX: %.2f"
-                            + " REAL: %.2f BTC: %.2f ETH: %.2f XRP: %.2f", 
-                            dataHora, tipo, valor, moeda, cotacao, taxa, 
-                            saldoReal, saldoBtc, saldoEth, saldoXrp));
-                }
+            ResultSet resultado = statement.executeQuery();
+            
+            while (resultado.next()) {
+                String linha = String.format(
+                "%s %s %.2f %s CT: %.2f TX: %.2f REAL: %.2f BTC: %.2f ETH: %.2f XRP: %.2f",
+                resultado.getString("data_formatada"),
+                resultado.getString("tipo_transacao"),
+                resultado.getDouble("valor"),
+                resultado.getString("moeda"),
+                resultado.getDouble("cotacao"),
+                resultado.getDouble("taxa"),
+                resultado.getDouble("saldo_real"),
+                resultado.getDouble("saldo_btc"),
+                resultado.getDouble("saldo_eth"),
+                resultado.getDouble("saldo_xrp")
+            );
+            extrato.add(linha);
             }
         }
         return extrato;
