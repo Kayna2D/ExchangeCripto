@@ -18,7 +18,13 @@ public class SaldoFrame extends javax.swing.JFrame {
     public SaldoFrame(Investidor investidor) {
         initComponents();
         lblNome.setText(investidor.getNome());
-        lblCpf.setText(investidor.getCpf());
+        lblCpf.setText(
+                String.format("%s.%s.%s-%s", 
+                    investidor.getCpf().substring(0, 3), 
+                    investidor.getCpf().substring(3, 6), 
+                    investidor.getCpf().substring(6, 9), 
+                    investidor.getCpf().substring(9, 11))
+        );
         lblReais.setText(
                 String.format("%.2f",
                         investidor.getCarteira().getMoedas().get(0).getValor())
